@@ -1,0 +1,13 @@
+FROM python:3.9-slim
+
+WORKDIR /practica7
+
+COPY . /practica7
+
+RUN pip install flask
+
+RUN echo "from flask import Flask\napp = Flask(__name__)\n@app.route('/')\ndef hello():\n    return 'Hola, mundo'" > app.py
+
+EXPOSE 5000
+
+CMD ["python", "practica7.py"]
